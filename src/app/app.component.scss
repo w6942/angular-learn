@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  height: 100%;
+
+  nav {
+    width: 240px;
+    height: 100%;
+    border-right: 1px solid rgba(0,0,0,.12);
+  }
+}

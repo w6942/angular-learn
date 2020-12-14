@@ -1,0 +1,38 @@
+.menu-list, .cdk-drag-preview {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    color: rgba(0,0,0,.65);
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 25px;
+
+    &:focus, &:hover {
+      background-color: rgba(0,0,0,.04);
+    }
+
+  }
+
+  a.active {
+    color: #3f51b5;
+    background-color: rgba(63,81,181,.15);
+
+    :focus, &:hover {
+      background-color: rgba(63,81,181,.3);
+    }
+
+  }
+
+}
+
+.cdk-drag-preview {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+}

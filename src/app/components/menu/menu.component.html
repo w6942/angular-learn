@@ -1,0 +1,9 @@
+<div class="menu-list" cdkDropList (cdkDropListDropped)="drop($event)">
+
+  <div *ngFor="let menu of menus" cdkDrag [cdkDragDisabled]="!(canEdit$ | async)">
+
+    <a routerLink="{{menu.url}}" routerLinkActive="active">{{menu.title}}</a>
+
+  </div>
+
+</div>
