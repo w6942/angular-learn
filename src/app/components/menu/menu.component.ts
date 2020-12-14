@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { BehaviorSubject, concat, fromEvent, merge, Observable, Subject } from 'rxjs';
-import { filter, mapTo, switchMap } from 'rxjs/operators';
+import { fromEvent, merge, Observable } from 'rxjs';
+import { filter, mapTo } from 'rxjs/operators';
 import { IMenu } from '../../models/i-menu';
 
 @Component({
