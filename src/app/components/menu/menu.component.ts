@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { fromEvent, merge, Observable } from 'rxjs';
 import { filter, mapTo } from 'rxjs/operators';
+import { MENU, SHIFT } from '../../consts';
 import { IMenu } from '../../models/i-menu';
 
 @Component({
@@ -30,7 +31,7 @@ export class MenuComponent implements OnInit {
   }
 
   private getMenus(): Array<IMenu> {
-    const menuStr: string | null = localStorage.getItem('menu');
+    const menuStr: string | null = localStorage.getItem(MENU);
     if (menuStr) {
       return JSON.parse(menuStr);
     }
@@ -55,23 +56,21 @@ export class MenuComponent implements OnInit {
   }
 
   private saveMenus(menus: Array<IMenu>): void {
-    localStorage.setItem('menu', JSON.stringify(menus));
+    localStorage.setItem(MENU, JSON.stringify(menus));
   }
 
   private canEditMonitor(): void {
     const shiftDown: Observable<true> = fromEvent<KeyboardEvent>(window, 'keydown').pipe(
-      filter(({key}) => key === 'Shift'),
+      filter(({key}) => key === SHIFT),
       mapTo(true)
     );
 
     const shiftUp: Observable<false> = fromEvent<KeyboardEvent>(window, 'keyup').pipe(
-      filter(({key}) => key === 'Shift'),
+      filter(({key}) => key === SHIFT),
       mapTo(false)
     );
 
     this.canEdit$ = merge(shiftDown, shiftUp);
   }
-
-
 
 }

@@ -1,5 +1,7 @@
-<nav>
+<nav [class.collapsed]="collapsed$ | async">
   <app-menu></app-menu>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
